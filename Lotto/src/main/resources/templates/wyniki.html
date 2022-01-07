@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Wyniki losowania</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Wylosowane liczby:</h1>
+	<h3>[<span th:each="liczba: ${los.wyniki}">		
+			<span th:text="${liczba}"></span>	
+		</span>
+	]</h3>
+	<h1>Raport:</h1>
+
+	    <div th:each="ind: ${#numbers.sequence(0, los.liczba_kuponow-1)}">
+	    	<h3><span>Kupon o numerach [</span>
+
+		    <span th:each="liczba: ${los.kupon[ind]}">
+		        <span th:text="${liczba}"></span>	           
+		    </span>
+		    <span>] jest </span><span th:text="${los.napis[ind]}"></span>
+		    <span> Wygrana wynosi</span> <span th:text=${los.wygrana[ind]}></span>
+		    <span> zł ,ponieważ liczba trafień wynosi </span> <span th:text="${los.licznik[ind]}"> </span>
+
+		    </h3>
+	    </div>
+    <h3><a href="/Lotto/start">Zacznij od nowa</a></h3>
+</body>
+</html>

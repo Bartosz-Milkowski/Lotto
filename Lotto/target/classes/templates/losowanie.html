@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Losowanie Lotto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Wylosowane liczby:</h1>
+	<h3>[<span th:each="liczba: ${los.wyniki}">		
+			<span th:text="${liczba}"></span>	
+		</span>
+	]</h3>
+<h3><a href="/Lotto/wyniki">Losuj kupony i sprawdz raport </a></h3>
+</body>
+</html>
